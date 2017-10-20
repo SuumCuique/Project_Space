@@ -1,0 +1,60 @@
+wмосковский проспект, 96 А, площадь восстания
+арка, справа отдель ный вход
+Александр Олегович Пресняков
+
+
+http://www.yaplakal.com/forum7/topic1627195.html?utm_referrer=https%3A%2F%2Fzen.yandex.com
+
+
+n0202s2608  -  пароль от вифи по  Сергеевской, 89а
+
+
+y4B2Wt - пароль черчука
+75851 пароль григоренко
+Mary221 пароль ляпина
+
+OOP_1_var		iWmc0$?wIKY5mBm8%gk0
+
+
+library ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+entity avtomat is
+	port(
+		input : in std_logic_vector(7 downto 0);
+		Nbit : in integer;
+		output : out std_logic_vector(7 downto 0)
+		);
+end entity;
+
+architecture Behaving of avtomat is
+signal sll_u : UNSIGNED(7 downto 0);
+--variable i
+begin
+	process(input, Nbit)
+	begin
+		if(Nbit = 1) then 
+			output <= SHIFT_RIGHT(unsigned(input), 1);
+		end if;
+		if(Nbit = 2) then 
+			output <= SHIFT_RIGHT(input, 2);
+		end if;
+		if(Nbit = 3) then 
+			output <= sll_u srl 3;
+			output(7) <= '1';
+			output(6) <= '1';
+			output(5) <= '1';
+		end if;
+		if(Nbit = 4) then 
+			output <= sll_u srl 4;
+			output(7) <= '1';
+			output(6) <= '1';
+			output(5) <= '1';
+			output(4) <= '1';
+		end if;
+		if (Nbit <= 0 or Nbit > 4) then
+			output <= "XXXXXXXX";
+		end if;
+	end process;
+end Behaving;
